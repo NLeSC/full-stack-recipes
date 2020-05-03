@@ -16,7 +16,7 @@ Apart from giving main functionalities out of the box, the approaches should foc
 All different approaches should include the next functionalities out of the box:
 - Steps to recreate `development` and `production` environment
 - Links to the official guidelines of each technology and best practices.
-- SSR (Server side rendering)
+- SPA (Single Page Application) or SSR (Server side rendering)
 - PWA 
 - Authorization and roles.
 - Docker-compose: 
