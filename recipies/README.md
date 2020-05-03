@@ -6,7 +6,7 @@
   * DB: < Your Database >
   * Hosting: < Your hosting service >
   * Auth service: < Your auth service >
-  * Price per month: < Free / #€/mo >
+  * Price per month: < Free | €/mo >
 
 # Recipe chechlist
 - [ ] SSR
