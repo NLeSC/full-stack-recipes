@@ -9,7 +9,7 @@
   * Price per month: < Free | €/mo >
 
 # Recipe chechlist
-- [ ] SSR
+- [ ] SSR | SPA
 - [ ] PWA
 - [ ] Reactive / DB Subcriptions
 - [ ] Full text search
