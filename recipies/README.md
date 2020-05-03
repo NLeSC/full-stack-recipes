@@ -23,7 +23,7 @@
   
 
 
-## Why client
+## Why this client
 
 ## Why this API
 
