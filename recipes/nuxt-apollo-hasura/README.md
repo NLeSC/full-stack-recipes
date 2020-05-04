@@ -1,6 +1,8 @@
 # nap
 
-> Nuxt Apollo Hasura Postgress recipies
+> Nuxt Apollo Hasura Postgress recipe.
+
+Requirements locally: docker and Yarn. 
 
 ## Build Setup
 
