@@ -20,8 +20,8 @@ All different approaches should include the next functionalities out of the box:
 - PWA 
 - Authorization and roles.
 - Docker-compose: 
- - Local development without external dependencies
- - Production deploy scripts and `.env` files
+  - Local development without external dependencies
+  - Production deploy scripts and `.env` files
 - CI Recipes
 
 ### Good to have:
