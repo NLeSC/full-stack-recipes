@@ -6,6 +6,12 @@ Requirements locally: docker and Yarn.
 
 ## Build Setup
 
+1. Create a Firebae project and write the config values on the `.env` file. 
+2. First create an `.env` file following `.env.example`.
+3. Add the necessary tables to the database like describe inside the application itself. `localhost:3000/crud`
+
+
+
 ```bash
 # install dependencies
 $ yarn install
