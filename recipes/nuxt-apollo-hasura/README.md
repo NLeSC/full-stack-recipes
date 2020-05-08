@@ -1,4 +1,4 @@
-# nap
+# Nuxt Apollo Hasura Example
 
 > Nuxt Apollo Hasura Postgress recipe.
 
