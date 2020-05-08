@@ -5,17 +5,6 @@
 version: '3.6'
 #services:
 services:
-#  client:
-#    image: node
-#    volumes:
-#      - .:/usr/src/service
-#      - ./:/usr/src/service/node_modules
-#    working_dir: /usr/src/service
-#    command: npm run dev
-#    ports:
-#      - "3000:3000"
-#    environment:
-#      - NODE_ENV=development
   postgres:
     image: postgres:12
     restart: always
@@ -23,6 +12,7 @@ services:
       - db_data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: postgrespassword
+
   graphql-engine:
     image: hasura/graphql-engine
     ports:
@@ -34,6 +24,10 @@ services:
       HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5432/postgres
       HASURA_GRAPHQL_ENABLE_CONSOLE: "true" # set to "false" to disable console
       HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
+#
+#     HASURA_GRAPHQL_ADMIN_SECRET= "myadminsecretkey"
+#     HASURA_GRAPHQL_JWT_SECRET= "{'type':'HS256', 'key': '3EK6FD+o0+c7tzBNVfjpMkNDi2yARAAKzQlk8O2IKoxQu4nF7EdAh8s3TwpHwrdWT6R'}"
+
       ## uncomment next line to set an admin secret
 #      HASURA_GRAPHQL_ADMIN_SECRET: local
 volumes:

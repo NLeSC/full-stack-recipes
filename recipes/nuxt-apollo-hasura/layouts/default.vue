@@ -6,6 +6,8 @@
       :clipped="clipped"
       fixed
       app
+      :width="220"
+      mobile-break-point="759"
     >
       <v-list>
         <v-list-item
@@ -32,67 +34,60 @@
       <v-btn icon @click.stop="clipped = !clipped">
         <v-icon>mdi-application</v-icon>
       </v-btn>
-      <v-btn icon @click.stop="fixed = !fixed">
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title" />
+      <v-toolbar-title class="ml-4" v-text="title" />
       <v-spacer />
-      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
+      <login-button />
     </v-app-bar>
     <v-content>
       <v-container>
         <nuxt />
       </v-container>
     </v-content>
-    <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light>
-              mdi-repeat
-            </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-footer :fixed="fixed" app>
-      <span> eScience Center &copy; {{ new Date().getFullYear() }} </span>
+    <v-footer app class="flex">
+      <img
+        src="https://www.esciencecenter.nl/wp-content/themes/raadhuis/dist/assets/img/favicons/apple-touch-icon.png"
+        width="20"
+        class="mr-3"
+      />
+      <small>eScience Center &copy; {{ new Date().getFullYear() }}</small>
+      <v-spacer></v-spacer>
+      <small>App version {{ version }}</small>
     </v-footer>
   </v-app>
 </template>
 
 <script>
+import { version } from '~/package.json'
+import LoginButton from '~/components/LoginButton'
 export default {
+  components: { LoginButton },
   data() {
     return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
+      clipped: true,
+      drawer: true,
+      miniVariant: true,
       items: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
+          icon: 'mdi-home-outline',
+          title: 'Home',
           to: '/',
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire',
+          icon: 'mdi-database-sync',
+          title: 'CRUD Database',
+          to: '/crud',
         },
         {
-          icon: 'mdi-elephant',
-          title: 'About',
-          to: '/about',
+          icon: 'mdi-file-lock-outline',
+          title: 'Secret Page',
+          to: '/secret',
         },
       ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js',
+      title: 'Nuxt Apollo Hasura',
     }
+  },
+  computed: {
+    version: () => version,
   },
 }
 </script>

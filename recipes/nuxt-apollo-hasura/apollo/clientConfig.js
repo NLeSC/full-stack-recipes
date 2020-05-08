@@ -3,7 +3,7 @@ export default function (context) {
   return {
     httpLinkOptions: {
       uri: 'http://localhost:4000/v1/graphql',
-      credentials: 'same-origin',
+      // credentials: 'same-origin',
     },
     cache: new InMemoryCache(),
     wsEndpoint: 'ws://localhost:4000/v1/graphql',

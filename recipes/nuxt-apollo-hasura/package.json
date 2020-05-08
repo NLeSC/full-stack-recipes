@@ -1,7 +1,7 @@
 {
-  "name": "nap",
+  "name": "nuxt-apollo-hasura",
   "version": "1.0.0",
-  "description": "Nuxt Apollo Hasura Postgress recipies",
+  "description": "Nuxt Apollo Hasura Postgres recipes",
   "author": "Jesús García",
   "private": true,
   "scripts": {
@@ -9,21 +9,28 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
+    "lint": "eslint --fix --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
     "@nuxtjs/apollo": "^4.0.0-rc19",
     "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/firebase": "^5.2.0",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
+    "add": "^2.0.6",
     "apollo-cache-inmemory": "^1.6.5",
+    "cookieparser": "^0.1.0",
     "core-js": "^3.6.5",
+    "firebase": "^7.14.3",
     "graphql-tag": "^2.10.3",
-    "nuxt": "^2.12.2"
+    "js-cookie": "^2.2.1",
+    "jwt-decode": "^2.2.0",
+    "nuxt": "^2.12.2",
+    "yarn": "^1.22.4"
   },
   "devDependencies": {
     "@babel/runtime-corejs3": "^7.9.6",
     "@nuxtjs/eslint-config": "^2.0.2",
-    "@nuxtjs/eslint-module": "^1.2.0",
+    "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/vuetify": "^1.11.2",
     "babel-eslint": "^10.1.0",
     "concurrently": "^5.2.0",
