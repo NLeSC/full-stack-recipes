@@ -17,9 +17,6 @@ export const actions = {
   resetUserState({ commit }) {
     commit('RESET_STATE_USER', null)
   },
-  TOGGLE_LOGIN_DIALOG_USER({ commit }) {
-    commit('TOGGLE_LOGIN_DIALOG_USER', null)
-  },
 }
 
 export const mutations = {
@@ -47,9 +44,5 @@ export const mutations = {
   // set logged in to true or false
   SET_LOGIN_USER(state, payload) {
     state.loggedIn = payload
-  },
-
-  TOGGLE_LOGIN_DIALOG_USER(state) {
-    this._vm.$set(state, 'loginDialog', !state.loginDialog)
   },
 }

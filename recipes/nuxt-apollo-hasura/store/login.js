@@ -41,7 +41,6 @@ export const actions = {
       console.error('‼️', error)
     }
   },
-
   async LOGOUT_USER({ state }) {
     try {
       await this.$fireAuth.signOut()
@@ -52,5 +51,12 @@ export const actions = {
       console.error(error)
     }
   },
+  TOGGLE_LOGIN_DIALOG_USER({ commit }) {
+    commit('TOGGLE_LOGIN_DIALOG_USER')
+  },
 }
-export const mutations = {}
+export const mutations = {
+  TOGGLE_LOGIN_DIALOG_USER(state) {
+    this._vm.$set(state, 'loginDialog', !state.loginDialog)
+  },
+}

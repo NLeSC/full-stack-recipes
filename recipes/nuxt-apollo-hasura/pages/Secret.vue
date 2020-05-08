@@ -15,6 +15,7 @@
 <script>
 export default {
   name: 'Secret',
+  middleware: 'auth',
 }
 </script>
 
