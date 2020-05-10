@@ -1,6 +1,12 @@
 <template>
   <div class="d-flex flex-column justify-center align-center">
-    <v-img max-width="700" width="100%" src="images/stack.jpg" class="mt-4" />
+    <v-img
+      max-width="700"
+      width="100%"
+      src="images/stack.jpg"
+      class="mt-4"
+      :aspect-ratio="255 / 122"
+    />
 
     <v-card max-width="700" width="100%" class="mt-4" outlined>
       <v-card-title class="headline">
@@ -22,8 +28,8 @@
               <li>Private Auth pages</li>
               <li>Realtime subscription</li>
               <li>Optimistic UI</li>
-              <li>One command development setup with docker</li>
               <li>Responsive UI</li>
+              <li>One dev command with Docker</li>
             </ul>
           </v-col>
           <v-col sm="6" cols="12"
