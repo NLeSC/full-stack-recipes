@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex justify-center align-center">
+  <div class="d-flex flex-column justify-center align-center">
     <v-card max-width="700" width="100%">
       <v-img src="images/stack.png" :aspect-ratio="4 / 1" />
 
@@ -37,6 +37,6 @@
 </template>
 <script>
 export default {
-  name: 'home',
+  name: 'Home',
 }
 </script>

@@ -41,10 +41,11 @@ export const actions = {
       console.error('‼️', error)
     }
   },
-  async LOGOUT_USER({ state }) {
+  async LOGOUT_USER({ commit }) {
     try {
       await this.$fireAuth.signOut()
       await this.$router.push('/')
+      commit('TOGGLE_LOGIN_DIALOG_USER', false)
       // state.loggedIn = false
       // state.user = {}
     } catch (error) {
@@ -56,7 +57,7 @@ export const actions = {
   },
 }
 export const mutations = {
-  TOGGLE_LOGIN_DIALOG_USER(state) {
-    this._vm.$set(state, 'loginDialog', !state.loginDialog)
+  TOGGLE_LOGIN_DIALOG_USER(state, payload) {
+    state.loginDialog = payload || !state.loginDialog
   },
 }

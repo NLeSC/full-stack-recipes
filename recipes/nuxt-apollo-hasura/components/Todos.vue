@@ -1,25 +1,7 @@
 <template>
   <v-card class="mt-3">
-    <v-card-title>
-      <v-icon>mdi-database</v-icon>
-      Data from &nbsp;
-      <a href="http://localhost:4000" target="_blank">
-        database
-        <v-icon size="16">mdi-open-in-new</v-icon>
-      </a>
-    </v-card-title>
+    <v-card-title>{{ title }}</v-card-title>
     <v-card-text>
-      <p>
-        <a
-          href="http://localhost:4000/console/data/schema/public"
-          target="_blank"
-        >
-          Create a table
-        </a>
-        called 'todos' on the database with 4 columns: 'id'(Integer),
-        'title'(Text) and 'is_publish'(Boolean), 'is_completed'(Boolean).
-      </p>
-
       <h4>Num 'todos' subscription: {{ todosCount }}</h4>
       <v-form @submit.prevent="addTodo">
         <v-text-field
@@ -50,9 +32,12 @@ import gql from 'graphql-tag'
 // const SUBSCRIPTION_NUM_TODOS= gql`
 // `
 
-export const GET_PUBLIC_TODOS = gql`
-  query getMyTodos {
-    todos(where: { is_public: { _eq: true } }, order_by: { created_at: desc }) {
+export const GET_TODOS = gql`
+  query getMyTodos($isPublic: Boolean!, $ownerId: String) {
+    todos(
+      where: { is_public: { _eq: $isPublic }, owner_id: { _eq: $ownerId } }
+      order_by: { created_at: desc }
+    ) {
       id
       title
       created_at
@@ -70,8 +55,10 @@ const TODOS_COUNT_SUBSCRIPTION = gql`
   }
 `
 const ADD_TODO = gql`
-  mutation insert_todos($todo: String!, $isPublic: Boolean!) {
-    insert_todos(objects: { title: $todo, is_public: $isPublic }) {
+  mutation insert_todos($todo: String!, $isPublic: Boolean!, $ownerId: String) {
+    insert_todos(
+      objects: { title: $todo, is_public: $isPublic, owner_id: $ownerId }
+    ) {
       affected_rows
       returning {
         id
@@ -91,17 +78,32 @@ const DELETE_TODO = gql`
     }
   }
 `
+
 export default {
   name: 'Todos',
+  props: {
+    title: { type: String, default: 'Todos title' },
+    type: { type: String, default: 'public' },
+  },
   data: () => ({
     newTodo: '',
     todosCount: 0,
-    type: 'public',
   }),
+  computed: {
+    isPublic() {
+      return this.type === 'public'
+    },
+  },
   apollo: {
     todos: {
       // graphql query
-      query: GET_PUBLIC_TODOS,
+      query: GET_TODOS,
+      variables() {
+        return {
+          isPublic: this.isPublic,
+          ownerId: this.isPublic ? null : this.$store?.state?.user?.user?.uid,
+        }
+      },
       error(error) {
         this.error = JSON.stringify(error.message)
       },
@@ -120,31 +122,37 @@ export default {
   },
   methods: {
     addTodo() {
-      // insert new todo into db
+      // insert new item into db
       const title = this.newTodo
       this.$apollo.mutate({
         mutation: ADD_TODO,
         variables: {
           todo: title,
-          isPublic: this.type === 'public',
+          isPublic: this.isPublic,
+          ownerId: this.isPublic ? null : this.$store.state.user.user.uid,
         },
-        // eslint-disable-next-line camelcase
         update: (cache, { data: { insert_todos } }) => {
           // Read the data from our cache for this query.
           try {
-            if (this.type === 'public') {
-              // readQuery will never make a request to your GraphQL server
-              const data = cache.readQuery({
-                query: GET_PUBLIC_TODOS,
-              })
-              const insertedTodo = insert_todos.returning
-              data.todos.splice(0, 0, insertedTodo[0])
-              cache.writeQuery({
-                query: GET_PUBLIC_TODOS,
-                data,
-              })
-              this.newTodo = ''
-            }
+            // readQuery will never make a request to your GraphQL server
+            const data = cache.readQuery({
+              query: GET_TODOS,
+              variables: {
+                isPublic: this.isPublic,
+                ownerId: this.isPublic ? null : this.$store.state.user.user.uid,
+              },
+            })
+            const insertedTodo = insert_todos.returning
+            data.todos.splice(0, 0, insertedTodo[0])
+            cache.writeQuery({
+              query: GET_TODOS,
+              variables: {
+                isPublic: this.isPublic,
+                ownerId: this.isPublic ? null : this.$store.state.user.user.uid,
+              },
+              data,
+            })
+            this.newTodo = ''
           } catch (e) {
             console.error(e)
           }
@@ -153,27 +161,34 @@ export default {
     },
 
     deleteTodo(id) {
-      console.log('🎹', id)
       this.$apollo.mutate({
         mutation: DELETE_TODO,
         variables: {
           id,
         },
         update: (store, { data, data: { delete_todos } }) => {
-          console.log('🎹', store, data)
           if (delete_todos.affected_rows) {
-            if (this.type === 'public') {
-              const data = store.readQuery({
-                query: GET_PUBLIC_TODOS,
-              })
-              data.todos = data.todos.filter((t) => {
-                return t.id !== id
-              })
-              store.writeQuery({
-                query: GET_PUBLIC_TODOS,
-                data,
-              })
-            }
+            const data = store.readQuery({
+              query: GET_TODOS,
+              variables: {
+                isPublic: this.isPublic,
+                ownerId: this.isPublic ? null : this.$store.state.user.user.uid,
+              },
+            })
+            data.todos = data.todos.filter((t) => {
+              return t.id !== id
+            })
+            store.writeQuery({
+              query: GET_TODOS,
+              variables: {
+                isPublic: this.isPublic,
+                ownerId:
+                  this.type === 'public'
+                    ? null
+                    : this.$store.state.user.user.uid,
+              },
+              data,
+            })
           }
         },
       })

@@ -88,23 +88,23 @@ export default {
 
         // it is recommended to configure either a mutation or action but you can set both
         initialize: {
-          onAuthStateChangedMutation: 'user/ON_AUTH_STATE_CHANGED_MUTATION',
-          // onAuthStateChangedAction: 'myCustomAction',
+          onAuthStateChangedAction: 'user/UPSERT_USER',
+          // onAuthStateChangedMutation: 'user/ON_AUTH_STATE_CHANGED_MUTATION',
         },
         ssr: false, // default
       },
     },
   },
 
-  // pwa: {
-  //   workbox: {
-  // importScripts: ['/firebase-auth-sw.js'],
-  // by default the workbox module will not install the service worker in dev environment to avoid conflicts with HMR
-  // only set this true for testing and remember to always clear your browser cache in development
-  // dev: process.env.NODE_ENV === 'development',
-  // debug: false,
-  // },
-  // },
+  /*pwa: {
+    workbox: {
+      // importScripts: ['/firebase-auth-sw.js'],
+      // by default the workbox module will not install the service worker in dev environment to avoid conflicts with HMR
+      // only set this true for testing and remember to always clear your browser cache in development
+      dev: process.env.NODE_ENV === 'development',
+      debug: false,
+    },
+  },*/
 
   /**
    * Apollo

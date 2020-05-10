@@ -177,21 +177,20 @@ export default {
       get() {
         return this.loginDialog
       },
-
       set() {
-        // this.TOGGLE_LOGIN_DIALOG_USER()
+        this.toggleDialogLogin()
       },
     },
   },
 
   methods: {
-    // TODO CONTINUE HERE: LOGIN WITH EMAIL IN GOOGLE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     // ...mapActions('userData', ['LOGIN_WITH_GOOGLE', 'LOGOUT_USER', 'TOGGLE_LOGIN_DIALOG_USER']),
     ...mapActions({
       loginWithEmailLInk: 'login/LOGIN_WITH_EMAIL_LINK',
       loginWithGoogle: 'login/LOGIN_WITH_GOOGLE',
       loginWithGithub: 'login/LOGIN_WITH_GITHUB',
       logout: 'login/LOGOUT_USER',
+      toggleDialogLogin: 'login/TOGGLE_LOGIN_DIALOG_USER',
     }),
 
     toProfile() {
@@ -213,10 +212,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.dialog-login {
-  /*background-image: url('../assets/ideas-diamond-login-bg.jpg');*/
-  /*background-size: cover;*/
-}
 .v-avatar {
   margin-left: 8px;
   cursor: pointer;
