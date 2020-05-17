@@ -1,5 +1,0 @@
-{
-  "projects": {
-    "production": "nuxt-apollo-hasura"
-  }
-}
