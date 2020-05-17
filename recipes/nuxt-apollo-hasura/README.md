@@ -1,24 +1,29 @@
 # Nuxt Apollo Hasura Example
 
-> Nuxt Apollo Hasura Postgress recipe.
-
 Requirements locally: docker and Yarn. 
 
-## Build Setup
+## Setup
 
 1. Create a Firebae project and write the config values on the `.env` file. 
 2. First create an `.env` file following `.env.example`.
 3. Add the necessary tables to the database like describe inside the application itself. `localhost:3000/crud`
 
 
-
 ```bash
+
 # install dependencies
 $ yarn install
 
 # serve with hot reload at localhost:3000
-$ yarn serve
+$ yarn dev
+```
 
+Setup database schema and data
+```
+$ npx hasura migrate apply
+```
+
+```
 # build for production and launch server
 $ yarn build
 $ yarn start
