@@ -7,6 +7,9 @@ In this project we aim to create full-stack recipes with different chosen web te
 
 ![image](https://user-images.githubusercontent.com/4195550/80917564-08121100-8d60-11ea-817b-a55eaea61830.png)
 
+## Recipes
+* [Nuxt + Apollo + Hasura + Postgres](https://github.com/NLeSC/nuxt-apollo-hasura)
+
 ## Boilerplates vs Recipes guidelines
 Forks from other projects often lead to poor maintenance, disconnected workflows that get obsolete. Rather than copying boilerplates, it is advised to follow official guidelines for each technology.
 
