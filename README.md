@@ -32,6 +32,5 @@ All different approaches should include the next functionalities out of the box:
 - Authorization with Passwordless authentication with an email link and federated login (Google, Facebook, Twitter, Github...)
 - Basic offline mode
 
-the the the 
 ## Learn more
 Each approach requires know-how, it is fundamental to study the chosen technologies as much as possible to accelerate the development process and avoid design pitfalls. 
