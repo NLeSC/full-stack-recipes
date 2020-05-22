@@ -1,3 +1,0 @@
-[submodule "recipes/nuxt-apollo-hasura"]
-	path = recipes/nuxt-apollo-hasura
-	url = https://github.com/NLeSC/nuxt-apollo-hasura
