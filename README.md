@@ -1,4 +1,6 @@
-# Full Stack Recipes
+## Recipes
+* [Nuxt + Apollo + Hasura + Postgres](https://github.com/NLeSC/nuxt-apollo-hasura)
+
 ### Full-stack guidelines and recipes with examples to create offline-first, passwordless, secure, and realtime Web Applications with 'pluggable' world-wide adopted technologies.
 
 Starting a new project while covering all necessary parts to have a `production ready` multiplatform web application has work intense and can be overwhelming. The number of different frameworks, libraries, and techniques in web development is growing by the minute. 
@@ -7,8 +9,6 @@ In this project we aim to create full-stack recipes with different chosen web te
 
 ![image](https://user-images.githubusercontent.com/4195550/80917564-08121100-8d60-11ea-817b-a55eaea61830.png)
 
-## Recipes
-* [Nuxt + Apollo + Hasura + Postgres](https://github.com/NLeSC/nuxt-apollo-hasura)
 
 ## Boilerplates vs Recipes guidelines
 Forks from other projects often lead to poor maintenance, disconnected workflows that get obsolete. Rather than copying boilerplates, it is advised to follow official guidelines for each technology.
