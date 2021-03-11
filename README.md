@@ -1,6 +1,6 @@
 ## Recipes
-* [Nuxt + Supabase](https://nuxt-supabase.netlify.app/) - 🎉 New
-* [Nuxt + Apollo + Hasura + Postgres](https://github.com/NLeSC/nuxt-apollo-hasura)
+* [Nuxt + Supabase](https://github.com/ctwhome/nuxt-supabase) - 🎉 New - [Live demo](https://nuxt-supabase.netlify.app/)
+* [Nuxt + Apollo + Hasura + Postgres](https://github.com/NLeSC/nuxt-apollo-hasura) [Live demo](https://nlesc.github.io/nuxt-apollo-hasura/)
 
 
 ### Full-stack guidelines and recipes with examples to create offline-first, passwordless, secure, and realtime Web Applications with 'pluggable' world-wide adopted technologies.
