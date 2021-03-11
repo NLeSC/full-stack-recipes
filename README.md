@@ -1,6 +1,7 @@
 ## Recipes
+* [Nuxt + Supabase](https://nuxt-supabase.netlify.app/) - 🎉 New
 * [Nuxt + Apollo + Hasura + Postgres](https://github.com/NLeSC/nuxt-apollo-hasura)
-* [Static generated site with github as a Headless CMS (Netlify Templates)](https://www.netlifycms.org/docs/start-with-a-template/)
+
 
 ### Full-stack guidelines and recipes with examples to create offline-first, passwordless, secure, and realtime Web Applications with 'pluggable' world-wide adopted technologies.
 
