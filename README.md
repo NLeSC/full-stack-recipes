@@ -9,7 +9,7 @@ Starting a new project while covering all necessary parts to have a `production 
 
 In this project we aim to create full-stack recipes with different chosen web technologies, all glue together, so you can start right away your project focusing on the functionalities and not on the setup.
 
-![image](https://user-images.githubusercontent.com/4195550/80917564-08121100-8d60-11ea-817b-a55eaea61830.png)
+![image](https://user-images.githubusercontent.com/4195550/110964549-94fc0280-8353-11eb-8e22-de850a71aa8a.png)
 
 
 ## Boilerplates vs Recipes guidelines
