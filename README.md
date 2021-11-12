@@ -1,4 +1,6 @@
 ## Recipes
+Made by [@ctwhome](https://github.com/ctwhome)
+
 * [Nuxt + Supabase](https://github.com/ctwhome/nuxt-supabase) - 🎉 New - [Live demo](https://nuxt-supabase.netlify.app/)
 * [Nuxt + Apollo + Hasura + Postgres](https://github.com/NLeSC/nuxt-apollo-hasura) [Live demo](https://nlesc.github.io/nuxt-apollo-hasura/)
 
